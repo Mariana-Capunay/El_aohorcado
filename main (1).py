@@ -615,7 +615,10 @@ def obternerHistoria():
     h_5 = f"""
     Hoy fui a visitar a mi abuelo_{nombre}_a su granja. Mientras me paseaba para ver como iban sus cosechas me quede muy sorprendido, no tenía idea de que había tantas variedades diferentes de manzanas. Pero sobre todo me quede muy sorprendido al encontrar una de color _{color}_, directamente de un árbol que tenia el mismo color.
     Mientras comía una de esas manzanas se acercó a mi un _{profesion}_, se me quedó observando mientras yo seguía comiendo, me sentía muy incómodo. Creí que tenía hambre y le ofrecí un plato de {comida} le dije que el granjero era mi abuelo y le podíamos invitar. El hombre no respondió y me miraba cada vez más con esos ojos de _{objeto}_, me enfade tanto que le dije que era un _{adjetivo}_ y le tire mi manzana en la cara y me fui corriendo, en el camino encontré un _{animales}_ el cual decidí montar para llegar mas rapido donde mi abuelo, pero como todo en la vida me sale mal siempre, este tropezó y me caí, manche mi _{prenda}_ por completo, seguía muy molesto, pensaba en los días felices cuando estaba en _{lugar}_. Pero bueno seguí caminando y sin darme cuenta ya había llegado a la casa de mi abuelo, su granja era gigantesca, pero al fin llegue, y de pronto veo a ese hombre con mi abuelo y se notaba muy molesto. Al llegar  a ellos mi abuelo me dijo que ese árbol era de aquel hombre y que me demandaria por comer parte de su cosecha y golpearlo. Y bueno eso es todo, si alguien pregunta por mí, o por manzanas, diganle que me morí. Adiós
+    """
     
+    h_6 = """
+    Este es el camino del_{animal}{nombre} el siempre lleva en su cabeza un {ropa}y en sus ojos unas {objeto} {color} y en sus patas unos {objetos } {color},su profesión era {profesión} los dientes de los niños y a cambio les daba monedas y luego de acabar con su labor se iba a comer un delicioso {comida} para luego irse a descansar.
     """
     historias = [h_1.replace("_", '"'), h_2.replace("_", '"'), h_3.replace("_", '"'), h_4.replace("_", '"'), h_5.replace("_", '"')]
 
