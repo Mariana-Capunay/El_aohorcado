@@ -344,7 +344,11 @@ def menu_principal():
             limpiarPantalla()
             if eleccion == "1":
                 limpiarPantalla()
-                nombre_1 = input("Nombre: ").upper()
+                nombre_1 = input("""
+                ◤--                 --◥
+                | Ingrese su nombre:   |
+                ◣--                 --◢
+                |👉 """).upper()
                 nombre = nombre_1.strip()
                 menu_ahorcado()
             if eleccion == "2":
@@ -364,7 +368,11 @@ def menu_principal():
            
     if eleccion == "1":
         limpiarPantalla()
-        nombre_1 = input("Nombre: ").upper()
+        nombre_1 = input("""
+        ◤--                 --◥
+        | Ingrese su nombre:   |
+        ◣--                 --◢
+        |👉 """).upper()
         nombre = nombre_1.strip()
         menu_ahorcado()
     if eleccion == "2":
@@ -582,45 +590,54 @@ def obternerHistoria():
     print("**** Mad Story ***")
     print("""Bienvenidos a Mad Story. Por favor conteste las
     siguientes preguntas.""")
-    animales =  input("👉 Ingrese el nombre de un animal: ")
-    profesion = input("👉 Ingrese el nombre de una profesion: ").capitalize()
-    prenda = input("👉 Ingrese un tipo de prenda: ")
-    objeto = input("👉 Ingrese el nombre de un objeto: ")
-    nombre = input("👉 Ingrese un nombre: ").capitalize()
-    lugar  = input("👉 Ingrese el nombre de un lugar: ").capitalize()
-    comida = input("👉 Ingrese el nombre de una comida: ")
-    color = input("👉 Ingrese un color: ")
-    adjetivo = input("👉 Ingrese un adjetivo: ")
+    animales =  input("""
+    ◤--                                          
+    | Ingrese un animal: 
+    |👉 """)
+    profesion = input("""
+    | Ingrese el nombre de una profesion:                 
+    | 👉 """).capitalize()  
+    prenda = input("""
+    | Ingrese un tipo de prenda:
+    | 👉 """)
+    objeto = input("""
+    | Ingrese el nombre de un objeto: 
+    | 👉 """)
+    nombre = input("""
+    | Ingrese un nombre:
+    | 👉 """).capitalize()
+    lugar  = input("""
+    | Ingrese el nombre de un lugar:
+    | 👉 """).capitalize()
+    comida = input("""
+    | Ingrese el nombre de una comida: 
+    | 👉""")
+    color = input("""
+    | Ingrese un color: 
+    | 👉 """)
+    adjetivo = input("""
+    | Ingrese un adjetivo: 
+    | 👉 """)
     
-    h_1 = f""" 
-    LAS MANZANAS
-    
-    Hoy recogimos manzanas de la granja de _{nombre}_. No tenía idea de que había tantas variedades diferentes de manzanas. Comí manzanas de _{color}_, directamente del árbol que el _{profesion}_ probó como {comida}. Luego había una manzana _{adjetivo}_ que parecía un _{objeto}_. Cuando nuestra bolsa estaba llena, fuimos en un paseo en _{animales}_ gratis a _{lugar}_ y de regreso. Terminó en una pila de heno donde llegamos caminando. Apenas puedo esperar para llegar a casa y cocinar con las manzanas. ¡Vamos a hacer pasteles de manzanas con _{comida}_ y _{prenda}_."""
+    h_1 = f"""
+    LAS MANZANAS 
 
-    h_2 = f"""  
-    EL FOTOGRAFO
+    Hoy fui a visitar a mi abuelo _{nombre}_ a su granja. Mientras paseaba para ver cómo iban sus cosechas me quedé muy sorprendido, no tenía idea de que había tantas variedades diferentes de manzanas. Pero sobre todo me quede muy sorprendido al encontrar una de color _{color}_, directamente de un árbol que tenia el mismo color.
+    Mientras comía una de esas manzanas se acercó a mi un _{profesion}_, se me quedó observando mientras yo seguía comiendo, me sentía muy incómodo. Creí que tenía hambre y le ofrecí un plato de _{comida}_ le dije que el granjero era mi abuelo y le podíamos invitar. El hombre no respondió y me miraba cada vez más con esos ojos de _{objeto}_, me enfade tanto que le dije que era un _{adjetivo}_ y le tire mi manzana en la cara y me fui corriendo, en el camino encontré un _{animales}_ el cual decidí montar para llegar más rápido donde mi abuelo, pero como todo en la vida me sale mal siempre, este tropezó y me caí, manche mi _{prenda}_ por completo, seguía muy molesto, pensaba en los días felices cuando estaba en _{lugar}_. Pero bueno seguí caminando y sin darme cuenta ya había llegado a la casa de mi abuelo, su granja era gigantesca, pero al fin llegue, y de pronto veo a ese hombre con mi abuelo y se notaba muy molesto. Al llegar  a ellos mi abuelo me dijo que ese árbol era de aquel hombre y que me demandaría por comer parte de su cosecha y golpearlo. Y bueno eso es todo, si alguien pregunta por mí, o por manzanas, diganle que me morí.                                                                                                                                                        
+    """
+
+    h_2 = f"""                                                                                                                                                               EL OTRO PLANETA
+
+    Un día iba camino a mi casa cuando encontré un _{animales}_ gigante me dijo que venía de un planeta nunca descubierto, en donde era _{profesion}_, yo me quedé muy sorprendido, y de pronto me dijo que necesitaba mi _{prenda}_, que con eso salvaría a su mundo de los extraterrestres, se la di y de pronto abrió sus alas gigantes y me pidió que me subiera encima para volar con él a su planeta, yo muy decidido a ayudarlo agarre un_{objeto}_ que estaba tirado en la calle y decidí ir a batallar, en el camino le pregunte cual era su nombre, a lo que respondió me llamo _{nombre}_, me quedé muy sorprendido con ese nombre. Pasados unos minutos nos dio mucha hambre y decidimos bajar a comer algo, nos encontrábamos en _{lugar}_ y por ahi habia una vendedora de _{comida}_, estabamos comiendo de lo mejor cuando alguien se acerca y me dice que me estoy poniendome de color _{color}_, yo no entendia que pasaba y de pronto senti como me desmayaba, desperte en el hospital y la doctora me dijo que me habian encontrado en la calle borracho junto a un _{animales}_ e intentando comer mi zapato, ahi me di cuenta que todo habia sido mi imaginación y me dije: eres tan _{adjetivo}_ y por eso me amo. Sean como yo muchachos, este es el fin de mi historia.                                                                                                                                                
+    """
     
-    _{comida}_, dijo el fotógrafo mientras la cámara parpadeaba! _{nombre}_ y yo habíamos ido a _{lugar}_ para tomar nuestras fotos en mi cumpleaños. La primera foto que realmente queríamos era una foto de nosotros vestidos como _{animales}_ fingiendo ser un _{profesion}_. Cuando vimos la segunda foto, era exactamente lo que queríamos. Ambos parecíamos un _{objeto}_ usando _{prenda}_ y _{verbo}_, exactamente lo que tenía en mente."""
-    
-    h_3 = f"""
-    LA MARIPOSA
-    
-    Anoche soñé que era una mariposa  _{adjetivo}_  con _{color}_ splocthes que parecían _{objeto}_. Volé a _{lugar}_ con mi mejor amigo y _{nombre}_ que era un _{animales}_. Comimos un poco de  _{comida}_ cuando llegamos allí y luego decidimos _{verbo}_ y el sueño terminó cuando dije: _{profesion}_"""
-    
-    h_4 = f"""
+    h_3 = f"""                                                                                                                                                        
     LA TÍA SUSY
-    
-    Una mañana saliendo del trabajo me encontré con Susy diaz y me pidio que porfavor la acompañara a su concierto porque le faltaba alguien que bailara junto a su elenco. Yo me dije: esta es tu oportunidad, y entre en mi modo _{animales} decidido, inmediatamente le dije que acepto que yo ya tenía experiencia porque soy _{profesion}_ y me subi a su bus el cual se dirigia al lugar del concierto, entonces me dijo que me cambiara y le pedi si me podria dar ropa y me dio su _{prenda}_ de la suerte, agarrre un _{objeto}_ y le dije quedatelo, para que nunca me olvide Tia Susy. A ella le caí tan bien que me bautizo con el nombre de _{nombre}_, yo me emocione mucho, cuando de pronto veo por la ventana y ya habíamos llegado a _{lugar}_ donde seria el concierto, cuando llegué me ofrecieron un _{comida}_ para comer antes del concierto, estuvo delicioso. Cuando termine nos dirigimos al escenario todo era de color _{color}_, empezo el show y comence a sacar mis pasitos prohibidos, lo hize de lo mejor, al finalizar Susy me felicito y me dijo eres muy _{adjetivo}_, luego me despedi y fue asi como vivi el mejor dia de mi vida.
-    """
-    h_5 = f"""
-    Hoy fui a visitar a mi abuelo_{nombre}_a su granja. Mientras me paseaba para ver como iban sus cosechas me quede muy sorprendido, no tenía idea de que había tantas variedades diferentes de manzanas. Pero sobre todo me quede muy sorprendido al encontrar una de color _{color}_, directamente de un árbol que tenia el mismo color.
-    Mientras comía una de esas manzanas se acercó a mi un _{profesion}_, se me quedó observando mientras yo seguía comiendo, me sentía muy incómodo. Creí que tenía hambre y le ofrecí un plato de {comida} le dije que el granjero era mi abuelo y le podíamos invitar. El hombre no respondió y me miraba cada vez más con esos ojos de _{objeto}_, me enfade tanto que le dije que era un _{adjetivo}_ y le tire mi manzana en la cara y me fui corriendo, en el camino encontré un _{animales}_ el cual decidí montar para llegar mas rapido donde mi abuelo, pero como todo en la vida me sale mal siempre, este tropezó y me caí, manche mi _{prenda}_ por completo, seguía muy molesto, pensaba en los días felices cuando estaba en _{lugar}_. Pero bueno seguí caminando y sin darme cuenta ya había llegado a la casa de mi abuelo, su granja era gigantesca, pero al fin llegue, y de pronto veo a ese hombre con mi abuelo y se notaba muy molesto. Al llegar  a ellos mi abuelo me dijo que ese árbol era de aquel hombre y que me demandaria por comer parte de su cosecha y golpearlo. Y bueno eso es todo, si alguien pregunta por mí, o por manzanas, diganle que me morí. Adiós
+
+    Una mañana saliendo del trabajo me encontré con Susy Diaz y me pidió que por favor la acompañara a su concierto porque le faltaba alguien que bailara junto a su elenco. Yo me dije: esta es tu oportunidad, y entre en mi modo _{animales}_ decidido, inmediatamente le dije que acepto que yo ya tenía experiencia porque soy _{profesion}_ y me subí a su bus el cual se dirigía al lugar del concierto, entonces me dijo que me cambiara y le pedí si me podria dar ropa y me dio su _{prenda}_ de la suerte, agarre un _{objeto}_ y le dije quedatelo, para que nunca me olvide Tia Susy. A ella le caí tan bien que me bautizó con el nombre de _{nombre}_, yo me emocione mucho, cuando de pronto veo por la ventana y ya habíamos llegado a _{lugar}_ donde seria el concierto, cuando llegué me ofrecieron _{comida}_ para comer antes del concierto, estuvo delicioso. Cuando termine nos dirigimos al escenario todo era de color _{color}_, empezo el show y comence a sacar mis pasitos prohibidos, lo hize de lo mejor, al finalizar Susy me felicito y me dijo eres muy _{adjetivo}_, luego me despedi y fue así como viví el mejor día de mi vida.
     """
     
-    h_6 = """
-    Este es el camino del_{animal}{nombre} el siempre lleva en su cabeza un {ropa}y en sus ojos unas {objeto} {color} y en sus patas unos {objetos } {color},su profesión era {profesión} los dientes de los niños y a cambio les daba monedas y luego de acabar con su labor se iba a comer un delicioso {comida} para luego irse a descansar.
-    """
-    historias = [h_1.replace("_", '"'), h_2.replace("_", '"'), h_3.replace("_", '"'), h_4.replace("_", '"'), h_5.replace("_", '"')]
+    historias = [h_1.replace("_", '"'), h_2.replace("_", '"'), h_3.replace("_", '"')]
 
     return random.choice(historias)
     
