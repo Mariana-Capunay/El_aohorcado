@@ -225,6 +225,45 @@ def haGanado():
             return False      
     return True 
 
+def merge(left, right):
+    merged_list = [0 for x in range(len(left) + len(right))]
+    # SU SOLUCION EMPIEZA AQUI
+    i = j = k = 0
+    while i < len(left) and j < len(right):
+        if left[i][0] < right[j][0]:
+            merged_list[k] = left[i]
+            i += 1
+        else:
+            merged_list[k] = right[j]
+            j += 1
+        k += 1
+
+    while i < len(left):
+        merged_list[k] = left[i]
+        i += 1
+        k += 1
+
+    while j < len(right):
+        merged_list[k] = right[j]
+        j += 1
+        k += 1
+
+    # SU SOLUCION TERMINA AQUI
+    return merged_list
+
+def merge_sort(lista):
+    if len(lista) == 1:
+        return lista
+    elif len(lista) > 1:
+        mid = len(lista) // 2
+        left = lista[:mid]
+        right = lista[mid:]
+        
+        der = merge_sort(right)
+        izq = merge_sort(left)
+        
+    return merge(izq, der)
+
 #================================================================
 #PARTE: MENUS 
 
@@ -473,22 +512,21 @@ def leaderboard():
         print("No hay jugadores")
     
     else:
-        n = 0
-        jugadores = dict()
         puntaje = list()
         for nombre in lista_nombres:
-            n += 1
             with open(nombre + ".txt", "r", encoding = "utf-8") as nuevo_archivo:
-                punto = nuevo_archivo.read()
-                print("[{}] {} -- {} pts".format(n, nombre, punto))
-                """
-                
-                puntaje.append(int(punto))
-                jugadores.setdefault(punto, nombre)
-                
-                """
+                punto = int(nuevo_archivo.read())
+                jugadore_puntos = (punto, nombre)
+                puntaje.append(jugadore_puntos)
         
-            #print(puntaje.sort())
+        jugadores = merge_sort(puntaje)
+        n = 1
+        for i in jugadores[-1::-1]:
+            print("[{}°] {} -- {} pts".format(n, i[1], i[0]))
+            n += 1
+            
+    
+    
             
             
     m = """ 
