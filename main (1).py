@@ -521,13 +521,12 @@ def leaderboard():
         
         jugadores = merge_sort(puntaje)
         n = 1
+        print("◤--                  --◥")
         for i in jugadores[-1::-1]:
-            print("[{}°] {} -- {} pts".format(n, i[1], i[0]))
+            print(" [{} °] {} -- {} pts ".format(n, i[1], i[0]))
+            print("                      ")
             n += 1
-            
-    
-    
-            
+        print("◣--                  --◢")
             
     m = """ 
         ◤--                          --◥
