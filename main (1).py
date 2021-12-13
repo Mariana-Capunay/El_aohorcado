@@ -3,10 +3,11 @@ import os
 import random
 
 # Modeulos Locales
-from pantalla import imprimirAhorcado
+from pantalla import imprimirAhorcado #2 
+""" Llmamos a la función que encunetra en otro archivo"""
 
 #================================================================
-if not os.path.exists("nombres.txt"):
+if not os.path.exists("nombres.txt"): #3
     with open("nombres.txt", "w", encoding="utf-8") as archivo_nombres:
         pass
 #================================================================
@@ -20,7 +21,7 @@ categoria = ""
 nombre = ""
 
 
-def limpiarPantalla():
+def limpiarPantalla(): #4
     if os.name == "posix":
         os.system ("cls")
         
@@ -31,7 +32,7 @@ def limpiarPantalla():
 #================================================================
 #PALABRAS ALEATORIAS
 
-def obtenerFrase(grupo):
+def obtenerFrase(grupo): #5
     grupos = { 
         "series" : ["Mad Men", "Breaking Bad", "Fleabag", 
     "Game of Thrones", "Puedo destruirte", "The Americans", "The Office", "Succession", "BoJack Horseman" 
@@ -62,7 +63,7 @@ def obtenerFrase(grupo):
 
 #================================================================
 
-def prepararPalabra(original):
+def prepararPalabra(original): #6
     global palabraAdivinada
     
     original = original.upper()
@@ -82,7 +83,7 @@ def prepararPalabra(original):
             "adivinada": adivinada,
         })
         
-def letraEstaEnPalabra(letra):
+def letraEstaEnPalabra(letra): #7
     global palabraAdivinada
     
     for letraCompuesta in palabraAdivinada:
@@ -90,7 +91,7 @@ def letraEstaEnPalabra(letra):
             return True
     return False
 
-def descubrirLetra(letraEnviada):
+def descubrirLetra(letraEnviada): #8
     abc = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"] 
     
     while True:
@@ -122,8 +123,12 @@ def descubrirLetra(letraEnviada):
                 letraCompuesta["adivinada"] = True
     
     
-
-def jugar():
+#==============================================================================================
+"""
+Funcion Jugar: reunene a diferentes funciones para dar funcionalidad al juego, asi mismo es donde se inicia la catidad de intentos y puntos.
+Retorna el resultado obtenido despues de cada partida del ahorcado. 
+"""
+def jugar(): #9
     global frase
     global nombre
     global intentos
@@ -188,18 +193,18 @@ def jugar():
 # PARTE: ESTADO DEL HOMBRE
 # ESTADO DE LA PARTIDA: GANAR / PERDER
 
-def imprimirtituloAhorcado():
+def imprimirtituloAhorcado(): #10
     print(f"""\n **** El Ahorcado *** 
 Categoria seleccionada: {categoria.title()}""")
 
-def imprimirErradas():
+def imprimirErradas(): #11
     global letrasErradas
     print("Errores: ", end="")
     for letra in letrasErradas:
         print("[", letra, "] ", end="")
     print("")
 
-def imprimirPalabra():
+def imprimirPalabra(): #12
     for letraCompuesta in palabraAdivinada:
         if letraCompuesta["adivinada"]:
             print(letraCompuesta["letra"], end="")
@@ -207,7 +212,7 @@ def imprimirPalabra():
             print("-", end="")
     print("")
 
-def imprimirPalabraOriginal():
+def imprimirPalabraOriginal(): #13
     print("           ", "   ⛓️       ⛓️")
     print("           ", "◤--                         --◥") 
     print("              ", frase.upper())
@@ -217,7 +222,7 @@ def imprimirPalabraOriginal():
     print("          ","  |  Obtuviste: ", puntos, " pts |")
     print("           ", "◣--                         --◢")
 
-def haGanado():
+def haGanado(): #14
     global palabraAdivinada
     
     for letra in palabraAdivinada:
@@ -225,7 +230,13 @@ def haGanado():
             return False      
     return True 
 
-def merge(left, right):
+#================================================================
+
+"""
+Funcion Merge y Merge sort: Odena una lista de tuplas 
+"""
+
+def merge(left, right): #15
     merged_list = [0 for x in range(len(left) + len(right))]
     # SU SOLUCION EMPIEZA AQUI
     i = j = k = 0
@@ -251,7 +262,7 @@ def merge(left, right):
     # SU SOLUCION TERMINA AQUI
     return merged_list
 
-def merge_sort(lista):
+def merge_sort(lista): #16
     if len(lista) == 1:
         return lista
     elif len(lista) > 1:
@@ -267,7 +278,7 @@ def merge_sort(lista):
 #================================================================
 #PARTE: MENUS 
 
-def menu_ahorcado():
+def menu_ahorcado(): #17
     global categoria
 
     limpiarPantalla()
@@ -342,8 +353,8 @@ def menu_ahorcado():
         categoria = "animales"
         limpiarPantalla()
         jugar()
-
-def menu_principal():
+        
+def menu_principal(): #18
     global nombre
     limpiarPantalla()
     menu = """
@@ -427,7 +438,7 @@ def menu_principal():
         limpiarPantalla()
         exit()
 
-def otro_juego():
+def otro_juego(): #19
     m = """
     ◤-- Elige otro juego --◥
     | [1] SUDOKU            |
@@ -482,7 +493,7 @@ def otro_juego():
         limpiarPantalla()
         menu_principal()
 
-def leaderboard_1(a, puntos):
+def leaderboard_1(a, puntos): #20
     
     if os.path.exists(a + ".txt"):
         with open(a + ".txt", "r", encoding = "utf-8") as  nuevo_archivo:
@@ -497,7 +508,7 @@ def leaderboard_1(a, puntos):
         with open(a + ".txt", "w", encoding = "utf-8") as nuevo_archivo:
             nuevo_archivo.write(str(puntos * 10))
 
-def leaderboard():
+def leaderboard(): #21
     print("**** Leaderboard *** ")
     print()
     print("Jugadores")
@@ -535,7 +546,7 @@ def leaderboard():
         |👉 """
     opcion = input(m)
 
-def sudoku(): 
+def sudoku(): #22
     m = """ 
         🎅♥☻♠☻♣☻♦☻ - - - SUDOKU - - - ☻♦☻♣☻♠☻♥🎅 
     
@@ -572,7 +583,7 @@ def sudoku():
         limpiarPantalla()
         otro_juego()
       
-def run_run():
+def run_run(): #23
     m = """"
         🦊                           🦊 
         🦊     🐕 .RUN RUN. 🐕 
@@ -621,8 +632,8 @@ def run_run():
         otro_juego()
     
 #=================================================================
-        
-def obternerHistoria():
+# Historias 
+def obternerHistoria(): #24
     historias = []
     print("**** Mad Story ***")
     print("""Bienvenidos a Mad Story. Por favor conteste las
@@ -707,7 +718,7 @@ def obternerHistoria():
 
     return random.choice(historias)
     
-def mad_story(historia):
+def mad_story(historia): #25
     limpiarPantalla()
     print("**** Mad Story ***")
     print(historia)
@@ -724,11 +735,11 @@ def mad_story(historia):
                      
 #=================================================================
 
-def main():
+def main(): #26
     while True:
         menu_principal()
 
-def reiniciarTodo():
+def reiniciarTodo(): #27
     global letrasEscritas
     global palabraAdivinada
     global letrasErradas
