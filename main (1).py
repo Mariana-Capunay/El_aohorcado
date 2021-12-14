@@ -22,6 +22,11 @@ nombre = ""
 
 
 def limpiarPantalla(): #4
+    
+    """
+    La función limpiarPantalla recibe un string que es el comando 
+    para limpiar pantalla dependiendo al sistema operativo
+    """
     if os.name == "posix":
         os.system ("cls")
         
@@ -33,6 +38,11 @@ def limpiarPantalla(): #4
 #PALABRAS ALEATORIAS
 
 def obtenerFrase(grupo): #5
+    """
+    La función obtenerFrase recibe como parámetro una lista que dentro de ella estará las categorías, 
+    finalmente retornará una categoría aleatoria de un diccionario que contiene listas con palabras
+    """
+    
     grupos = { 
         "series" : ["Mad Men", "Breaking Bad", "Fleabag", 
     "Game of Thrones", "Puedo destruirte", "The Americans", "The Office", "Succession", "BoJack Horseman" 
@@ -64,6 +74,11 @@ def obtenerFrase(grupo): #5
 #================================================================
 
 def prepararPalabra(original): #6
+    """
+    La función prepararPalabra recibe un string que  es la palbra 
+    aleatoria del listado de palabras de las categorías, luego retorna
+    un listado las letras de la palabra sin contar espacios
+    """
     global palabraAdivinada
     
     original = original.upper()
@@ -84,6 +99,11 @@ def prepararPalabra(original): #6
         })
         
 def letraEstaEnPalabra(letra): #7
+    """
+    La función letraEstaEnPalabra recibe como parámetro a letra que es un 
+    string y retorna el estado de la letra en la palabra en caso exista o no
+    
+    """    
     global palabraAdivinada
     
     for letraCompuesta in palabraAdivinada:
@@ -92,6 +112,12 @@ def letraEstaEnPalabra(letra): #7
     return False
 
 def descubrirLetra(letraEnviada): #8
+    """
+    La función descubrirLetra recibe a letraEnviada que es un string que luego esta será verficada
+    si es una letra mas no un número o un caracter extraño. Una vez validada si es una letra, esta 
+    se almacenará en una lista, despues será verificada y actualizara 
+    
+    """
     abc = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"] 
     
     while True:
@@ -124,11 +150,14 @@ def descubrirLetra(letraEnviada): #8
     
     
 #==============================================================================================
-"""
-Funcion Jugar: reunene a diferentes funciones para dar funcionalidad al juego, asi mismo es donde se inicia la catidad de intentos y puntos.
-Retorna el resultado obtenido despues de cada partida del ahorcado. 
-"""
+
 def jugar(): #9
+    """
+    La función jugar ejecuta diferentes funciones que da la funcionalidad al juego, asi mismo 
+    utilza la función que fue inportada de otro archivo, verifca los intentos que posee el jugador 
+    e imprime los resultados de la partida como la palabra por encontar en caso no fue encontrada.
+    finalmente utiliza la función reiniciar para iniciar las vriables para otra partida.
+    """    
     global frase
     global nombre
     global intentos
@@ -194,10 +223,16 @@ def jugar(): #9
 # ESTADO DE LA PARTIDA: GANAR / PERDER
 
 def imprimirtituloAhorcado(): #10
+    """
+    La función imprimirtituloAhorcado imprime el título con la categoría correspondiente.
+    """
     print(f"""\n **** El Ahorcado *** 
 Categoria seleccionada: {categoria.title()}""")
 
 def imprimirErradas(): #11
+    """
+    La función imprimirErradas recibe una lista de las letras erradas, seguidamente imprime esta lista.
+    """
     global letrasErradas
     print("Errores: ", end="")
     for letra in letrasErradas:
@@ -205,6 +240,10 @@ def imprimirErradas(): #11
     print("")
 
 def imprimirPalabra(): #12
+    """
+    La función imprimirPalabra recibe la lista de palabras adivinadas, realiza una iteracion donde verifica el estado
+    de True o False de la palabra, en caso dea True la letra será revelada caso contrario se imprimirá un guion.
+    """
     for letraCompuesta in palabraAdivinada:
         if letraCompuesta["adivinada"]:
             print(letraCompuesta["letra"], end="")
@@ -213,6 +252,9 @@ def imprimirPalabra(): #12
     print("")
 
 def imprimirPalabraOriginal(): #13
+    """
+    La función imprimirPalabraOriginal imprime las letras de la palabra que debieron ser adivinadas.
+    """
     print("           ", "   ⛓️       ⛓️")
     print("           ", "◤--                         --◥") 
     print("              ", frase.upper())
@@ -223,6 +265,9 @@ def imprimirPalabraOriginal(): #13
     print("           ", "◣--                         --◢")
 
 def haGanado(): #14
+    """
+    La función haGanado llama una variable global de palabraAdivinada, luego se itera, retornará True o False dependiendo si la letra fue encontrada ó no.
+    """
     global palabraAdivinada
     
     for letra in palabraAdivinada:
@@ -231,14 +276,13 @@ def haGanado(): #14
     return True 
 
 #================================================================
-
-"""
-Funcion Merge y Merge sort: Odena una lista de tuplas 
-"""
+# ORDENAMINETO MERGE SORT
 
 def merge(left, right): #15
+    """
+    La función merge recibe dos listas y las ordena
+    """
     merged_list = [0 for x in range(len(left) + len(right))]
-    # SU SOLUCION EMPIEZA AQUI
     i = j = k = 0
     while i < len(left) and j < len(right):
         if left[i][0] < right[j][0]:
@@ -258,11 +302,10 @@ def merge(left, right): #15
         merged_list[k] = right[j]
         j += 1
         k += 1
-
-    # SU SOLUCION TERMINA AQUI
     return merged_list
 
 def merge_sort(lista): #16
+    """Divide un lista"""
     if len(lista) == 1:
         return lista
     elif len(lista) > 1:
@@ -492,23 +535,8 @@ def otro_juego(): #19
     if opcion == "3":
         limpiarPantalla()
         menu_principal()
-
-def leaderboard_1(a, puntos): #20
-    
-    if os.path.exists(a + ".txt"):
-        with open(a + ".txt", "r", encoding = "utf-8") as  nuevo_archivo:
-            lista_nombres = nuevo_archivo.readlines() 
-        pun = int(lista_nombres[0].strip())
-    
-        with open(a + ".txt", "w", encoding = "utf-8") as nuevo_archivo:
-            nuevo_archivo.write(str(pun + puntos * 10))    
-    else:
-        with open("nombres.txt", "a", encoding = "utf-8") as archivo_nombres:
-            archivo_nombres.write(a + "\n")  
-        with open(a + ".txt", "w", encoding = "utf-8") as nuevo_archivo:
-            nuevo_archivo.write(str(puntos * 10))
-
-def leaderboard(): #21
+        
+def leaderboard(): #20
     print("**** Leaderboard *** ")
     print()
     print("Jugadores")
@@ -546,7 +574,7 @@ def leaderboard(): #21
         |👉 """
     opcion = input(m)
 
-def sudoku(): #22
+def sudoku(): #21
     m = """ 
         🎅♥☻♠☻♣☻♦☻ - - - SUDOKU - - - ☻♦☻♣☻♠☻♥🎅 
     
@@ -583,7 +611,7 @@ def sudoku(): #22
         limpiarPantalla()
         otro_juego()
       
-def run_run(): #23
+def run_run(): #22
     m = """"
         🦊                           🦊 
         🦊     🐕 .RUN RUN. 🐕 
@@ -630,10 +658,33 @@ def run_run(): #23
     if opcion == "1":
         limpiarPantalla()
         otro_juego()
+        
+#================================================================
+#LEADERBOARD
+def leaderboard_1(a, puntos): #23
+    """La función leaderboard_ 1 crea archivos txt por cada jugador, alamcena los puntos obtenidos por cada partida"""
     
+    if os.path.exists(a + ".txt"):
+        with open(a + ".txt", "r", encoding = "utf-8") as  nuevo_archivo:
+            lista_nombres = nuevo_archivo.readlines() 
+        pun = int(lista_nombres[0].strip())
+    
+        with open(a + ".txt", "w", encoding = "utf-8") as nuevo_archivo:
+            nuevo_archivo.write(str(pun + puntos * 10))    
+    else:
+        with open("nombres.txt", "a", encoding = "utf-8") as archivo_nombres:
+            archivo_nombres.write(a + "\n")  
+        with open(a + ".txt", "w", encoding = "utf-8") as nuevo_archivo:
+            nuevo_archivo.write(str(puntos * 10))
+
+
 #=================================================================
 # Historias 
 def obternerHistoria(): #24
+    """
+    La función obtener historia, recibe las variables que se solicita al jugador, las cuales se reemplazan en las historias
+    Imprime una de las historias de forma aleatoria.
+    """
     historias = []
     print("**** Mad Story ***")
     print("""Bienvenidos a Mad Story. Por favor conteste las
@@ -644,7 +695,7 @@ def obternerHistoria(): #24
     |👉 """)
     profesion = input("""
     | Ingrese el nombre de una profesion:                 
-    | 👉 """).capitalize()  
+    | 👉 """)  
     prenda = input("""
     | Ingrese un tipo de prenda:
     | 👉 """)
@@ -693,7 +744,7 @@ def obternerHistoria(): #24
     él a su planeta, yo muy decidido a ayudarlo agarre un_{objeto}_ que estaba tirado en la calle y decidí ir a batallar, en el camino 
     le pregunte cual era su nombre, a lo que respondió me llamo _{nombre}_, me quedé muy sorprendido con ese nombre. Pasados unos 
     minutos nos dio mucha hambre y decidimos bajar a comer algo, nos encontrábamos en _{lugar}_ y por ahi habia una vendedora 
-    de _{comida}_, estabamos comiendo de lo mejor cuando alguien se acerca y me dice que me estoy poniendome de color _{color}_, yo 
+    de _{comida}_, estabamos comiendo de lo mejor cuando alguien se acerca y me dice que me estoy poniendo de color _{color}_, yo 
     no entendia que pasaba y de pronto senti como me desmayaba, desperte en el hospital y la doctora me dijo que me habian encontrado 
     en la calle borracho junto a un _{animales}_ e intentando comer mi zapato, ahi me di cuenta que todo habia sido mi imaginación y me 
     dije: eres tan _{adjetivo}_ y por eso me amo. Sean como yo muchachos, este es el fin de mi historia.                                                                                                                                                
@@ -719,6 +770,9 @@ def obternerHistoria(): #24
     return random.choice(historias)
     
 def mad_story(historia): #25
+    """
+    La función mad stoty, imprime la hitoria
+    """
     limpiarPantalla()
     print("**** Mad Story ***")
     print(historia)
@@ -736,14 +790,20 @@ def mad_story(historia): #25
 #=================================================================
 
 def main(): #26
+    """
+    La función main, inicia el juego"""
     while True:
         menu_principal()
 
 def reiniciarTodo(): #27
+    """
+    La función reiniciar todo, reinici las variables, para poder iniciar otra partida 
+    """
     global letrasEscritas
     global palabraAdivinada
     global letrasErradas
     palabraAdivinada = []
     letrasEscritas = []
     letrasErradas = []
+    
 main()
